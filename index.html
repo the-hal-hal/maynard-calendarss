@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .itemcontener {
+      display: flex;
+    }
+
+    .item {
+      margin: 10px
+    }
+
+    /* .asd {
+      display: none;
+    } */
+
+    .item:hover .asd {
+      scale: 2;
+      /* display: block; */
+      display: none;
+    }
+  </style>
+  <script>
+
+    function getPos (el) {
+      // yay readability
+      for (var lx = 0, ly = 0;
+        el != null;
+        lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
+      return { x: lx, y: ly };
+    }
+    var items = document.querySelectorAll(".item")
+      for (i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('click', function () {
+          this.style.width = "500px";
+          alert("asd");
+        });
+      }
+
+
+
+  </script>
+</head>
+
+<body>
+  <div style="height: 90vh; width: 100%;">
+    <div class="asd" style=" background-color: gray; height: 100%; width: 100%;border-radius: 100px;">
+      <h1 style="padding: 100px;">vcxvcxvxcvxcvxcv</h1>
+      <h1 style="padding: 100px;">vcxvcxvxcvxcvxcv</h1>
+    </div>
+    <!-- <div style=" background-color: gray; height: 100%; width: 100%;border-radius: 100px;">
+      <h1 style="padding: 100px;">ASDASD</h1>
+      <h1 style="padding: 100px;">ASDASD</h1>
+    </div> -->
+  </div>
+  <div class="itemcontener">
+    <button type="button" class="item">
+      jan
+    </button>
+    <button type="button" class="item">
+      jan
+    </button>
+    <button type="button" class="item">
+      jan
+    </button>
+    <button type="button" class="item">
+      jan
+    </button>
+  </div>
+</body>
+
+</html>
