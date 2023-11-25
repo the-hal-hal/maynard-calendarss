@@ -8,23 +8,172 @@
   <style>
     .itemcontener {
       display: flex;
+      width: 100%;
+    }
+    .asd {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .itemcontener div {
+      flex: 1;
+      padding: 10px
+    }
+
+    .moveTo {
+      position: relative;
+      left: 0px !important;
+      top: 0px !important;
+    }
+
+    .small {
+      scale: 0.065;
+    }
+
+    .hide {
+      /* opacity: 0; */
+    }
+
+    .transitionGo {
+      transition: all;
+      transition: 1000ms;
+    }
+
+    .content {
+      font-size: 200px;
+      margin: 0;
+      padding: 150px 150px;
     }
 
     .item {
-      margin: 10px
-    }
-
-    /* .asd {
-      display: none;
-    } */
-
-    .item:hover .asd {
-      scale: 2;
-      /* display: block; */
-      display: none;
+      background-color: gray;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: none;
+      border: none;
+      height: 50px;
+      width: 125px;
     }
   </style>
+</head>
+
+<body>
+  <div id="thething" class=" hide small" style="height: 800px; width: 100%;position: relative;">
+    <div class="asd" style=" background-color: gray; height: 100%; width: 100%;border-radius: 100px;">
+      <h1 id="content" class="content">HEY</h1>
+    </div>
+    <!-- <div style=" background-color: gray; height: 100%; width: 100%;border-radius: 100px;">
+      <h1 style="padding: 100px;">ASDASD</h1>
+      <h1 style="padding: 100px;">ASDASD</h1>
+    </div> -->
+  </div>
+  <div class="itemcontener">
+    <div>
+      <button type="button" class="item">
+        January
+      </button>
+    </div>
+    <div>
+      <button type="button" class="item">
+        February
+      </button>
+    </div>
+    <div>
+      <button type="button" class="item">
+        March
+      </button>
+    </div>
+    <div>
+      <button type="button" class="item">
+        April
+      </button>
+    </div>
+    <div>
+      <button type="button" class="item">
+        May
+      </button>
+    </div>
+    <div>
+      <button type="button" class="item">
+        June
+      </button>
+    </div>
+    <div>
+      <button type="button" class="item">
+        XXXX
+      </button>
+    </div>
+    <div>
+      <button type="button" class="item">
+        XXXX
+      </button>
+    </div>
+    <div>
+      <button type="button" class="item">
+        XXXX
+      </button>
+    </div>
+    <div>
+      <button type="button" class="item">
+        XXXX
+      </button>
+    </div>
+    <div>
+      <button type="button" class="item">
+        XXXX
+      </button>
+    </div>
+    <div>
+      <button type="button" class="item">
+        XXXX
+      </button>
+    </div>
+  </div>
   <script>
+    (function () {
+      var items = document.querySelectorAll(".item");
+      var content = document.getElementById("content");
+      var thething = document.getElementById("thething");
+
+      for (i = 0; i < items.length; i++) {
+        items[i].addEventListener('click', function () {
+          content.innerHTML = this.innerHTML; // change text
+
+          monthPosition = getPos(this); // get position of this
+          console.log("thething.offsetWidth");
+          console.log(thething.offsetWidth);
+          console.log("thething.offsetLeft");
+          console.log(thething.offsetLeft);
+          console.log("monthPosition.x");
+          console.log(monthPosition.x);
+          console.log("monthPosition.y");
+          console.log(monthPosition.y);
+
+          // console.log("Desired left");
+          // console.log(-((thething.offsetWidth / 2)- monthPosition.x) + "px");
+          console.log("Desired top");
+          console.log(((thething.offsetHeight - 100)));
+
+          // monthPosition = getPos(this); // get position of this
+
+          thething.style.top = ((thething.offsetHeight / 2)+35) + "px"
+          thething.style.left = -((thething.offsetWidth / 2) - monthPosition.x-55) + "px"
+          // thething.style.left = "-500px";
+          // thething.style.top = (monthPosition.y - thething.style.top) + "px";
+
+          // START THE ANIMATION
+          thething.classList.add("transitionGo");
+          setTimeout(() => {
+            thething.classList.remove("hide");
+            thething.classList.remove("small");
+            thething.classList.add("moveTo");
+          }, "1");
+
+        });
+      }
+    })();
 
     function getPos (el) {
       // yay readability
@@ -33,44 +182,7 @@
         lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
       return { x: lx, y: ly };
     }
-    var items = document.querySelectorAll(".item")
-      for (i = 0; i < inputs.length; i++) {
-        inputs[i].addEventListener('click', function () {
-          this.style.width = "500px";
-          alert("asd");
-        });
-      }
-
-
-
   </script>
-</head>
-
-<body>
-  <div style="height: 90vh; width: 100%;">
-    <div class="asd" style=" background-color: gray; height: 100%; width: 100%;border-radius: 100px;">
-      <h1 style="padding: 100px;">vcxvcxvxcvxcvxcv</h1>
-      <h1 style="padding: 100px;">vcxvcxvxcvxcvxcv</h1>
-    </div>
-    <!-- <div style=" background-color: gray; height: 100%; width: 100%;border-radius: 100px;">
-      <h1 style="padding: 100px;">ASDASD</h1>
-      <h1 style="padding: 100px;">ASDASD</h1>
-    </div> -->
-  </div>
-  <div class="itemcontener">
-    <button type="button" class="item">
-      jan
-    </button>
-    <button type="button" class="item">
-      jan
-    </button>
-    <button type="button" class="item">
-      jan
-    </button>
-    <button type="button" class="item">
-      jan
-    </button>
-  </div>
 </body>
 
 </html>
