@@ -139,6 +139,10 @@
 
       for (i = 0; i < items.length; i++) {
         items[i].addEventListener('click', function () {
+          thething.classList.add("hide");
+          thething.classList.add("small");
+          thething.classList.remove("moveTo");
+          thething.classList.remove("transitionGo");
           content.innerHTML = this.innerHTML; // change text
 
           monthPosition = getPos(this); // get position of this
@@ -164,12 +168,12 @@
           // thething.style.top = (monthPosition.y - thething.style.top) + "px";
 
           // START THE ANIMATION
-          thething.classList.add("transitionGo");
           setTimeout(() => {
+            thething.classList.add("transitionGo");
             thething.classList.remove("hide");
             thething.classList.remove("small");
             thething.classList.add("moveTo");
-          }, "1");
+          }, "100");
 
         });
       }
